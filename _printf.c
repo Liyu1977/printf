@@ -8,53 +8,35 @@
 
 int _printf(const char *format, ...)
 {
-va_list args;
+unsigned int i, s_count, count = 0;
+        va_list args;
 va_start(args, format);
 
-int charCount = 0;
-
-while (*format)
+for (i = 0; format[i] != '\0'; i++)
 {
-if (*format != '%') 
+if (format[i] != '%')
 {
-putchar(*format);
-charCount++;
+putchar(format[i]);
 }
-else
+else if (format[i + 1] == 'c')
 {
-format++;
-if (*format == 'c')
-{
-char c = va_arg(args, int);
-putchar(c);
-charCount++;
+putchar(va_arg(args, int));
+i++;
 }
-else if (*format == 's')
+else if (format[i + 1] == 's')
 {
-char *str = va_arg(args, char *);
-while (*str)
-{
-putchar(*str);
-charCount++;
-str++;
+s_count = putss(va_arg(args, char *));
+i++;
+count += (s_count - 1);
 }
-}
-else if (*format == '%')
+else if (format[i + 1] == '%')
 {
 putchar('%');
-charCount++;
 }
-}
-format++;
+count += 1;
 }
 
 va_end(args);
-return charCount;
-}
+return (count);
 
-int main(void)
-{
-int count = _printf("Hello, %s! My favorite character is %c. This is a %%.\n", "World", 'A');
-printf("Characters printed: %d\n", count);
-return (0);
 }
