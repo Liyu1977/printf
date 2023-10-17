@@ -1,11 +1,11 @@
 #include "main.h"
 
 /*
- * putchar - print a character
+ * ptchar - print a character
  * @c: char input
  * return: 1
  */
-int putchar(char c)
+int ptchar(char c)
 {
 	return (write(1, &c, 1));
 }

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int putchar(char c);
+int ptchar(char c);
 int _printf(const char *format, ...);
 int putss(char *c);
 

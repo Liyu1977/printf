@@ -13,7 +13,7 @@ if(c)
 {
 for (count = 0; c[count] != '\0'; count++)
 {
-putchar(c[count]);
+ptchar(c[count]);
 }
 }
 return (count);

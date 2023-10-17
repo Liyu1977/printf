@@ -16,11 +16,11 @@ for (i = 0; format[i] != '\0'; i++)
 {
 if (format[i] != '%')
 {
-putchar(format[i]);
+ptchar(format[i]);
 }
 else if (format[i + 1] == 'c')
 {
-putchar(va_arg(args, int));
+ptchar(va_arg(args, int));
 i++;
 }
 else if (format[i + 1] == 's')
@@ -31,7 +31,7 @@ count += (s_count - 1);
 }
 else if (format[i + 1] == '%')
 {
-putchar('%');
+ptchar('%');
 }
 count += 1;
 }
