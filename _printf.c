@@ -3,13 +3,15 @@
  * _printf - prints to the standardout formatted text.
  *
  * @format: format specifier.
- * return :number of bytes printed.
+ * return : number of byte printed.
  */
 
 int _printf(const char *format, ...)
 {
 unsigned int i, s_count, count = 0;
 va_list args;
+if (!format || (format[0] == '%' && format[1] == '\0'))
+return (-1);
 va_start(args, format);
 
 for (i = 0; format[i] != '\0'; i++)
